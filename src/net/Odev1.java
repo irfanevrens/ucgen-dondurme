@@ -11,6 +11,8 @@ import java.awt.event.MouseListener;
 import javax.swing.JApplet;
 import javax.swing.JLabel;
 import javax.swing.JSlider;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import net.lib.Koordinat;
 
@@ -39,6 +41,7 @@ public class Odev1 extends JApplet {
 			public void mouseClicked(MouseEvent e) {
 				
 				koordinat.mouseClicked(e);
+				
 				bilgiPaneli.setText(koordinat.getBilgi());
 			}
 
@@ -65,8 +68,7 @@ public class Odev1 extends JApplet {
 				// TODO Auto-generated method stub
 				
 			}
-			
-			
+
 		});
 		
 		koordinat.addComponentListener(new ComponentListener() {
@@ -82,7 +84,7 @@ public class Odev1 extends JApplet {
 				// TODO Auto-generated method stub
 				
 			}
-
+			
 			@Override
 			public void componentResized(ComponentEvent e) {
 				
@@ -91,13 +93,24 @@ public class Odev1 extends JApplet {
 
 			@Override
 			public void componentShown(ComponentEvent e) {
-				
+				// TODO Auto-generated method stub
 				
 			}
-			
 		});
 		
-		slider = new JSlider(0, 365, 0);
+		slider = new JSlider(0, 360, 0);
+		
+		slider.addChangeListener(new ChangeListener() {
+
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				
+				koordinat.donder((double)(slider.getValue()));
+				
+				bilgiPaneli.setText(koordinat.getBilgi());
+			}
+		});
+		
 		bilgiPaneli = new JLabel(koordinat.getBilgi(), JLabel.CENTER);
 		
 		add(koordinat, BorderLayout.CENTER);
