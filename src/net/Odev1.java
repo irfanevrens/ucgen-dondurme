@@ -117,22 +117,4 @@ public class Odev1 extends JApplet {
 		add(slider, BorderLayout.NORTH);
 		add(bilgiPaneli, BorderLayout.SOUTH);
 	}
-
-	@Override
-	public void update(Graphics g) {
-		
-		if (dbImage == null) {
-			
-			dbImage = createImage(this.getSize().width, this.getSize().height);
-			dbg = dbImage.getGraphics();
-		}
-		
-		dbg.setColor(getBackground());
-		dbg.fillRect(0, 0, this.getSize().width, this.getSize().height);
-		
-		dbg.setColor(getForeground());
-		paint(dbg);
-		
-		g.drawImage(dbImage, 0, 0, this);
-	}
 }
