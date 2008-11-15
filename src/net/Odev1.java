@@ -107,8 +107,6 @@ public class Odev1 {
 			public void stateChanged(ChangeEvent e) {
 				
 				koordinat.donder((double)(slider.getValue()));
-				
-				bilgiPaneli.setText(koordinat.getBilgi());
 			}
 		});
 		

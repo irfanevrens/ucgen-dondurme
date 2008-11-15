@@ -226,8 +226,6 @@ public class Koordinat extends JPanel {
 		
 		aci = value * 2 * Math.PI / 360;
 		
-		bilgi = "Açı: " + aci;
-		
 		repaint();
 	}
 	
